@@ -1,32 +1,28 @@
 import React from "react";
 import "./topHeader.css"
-import { Link, Outlet } from "react-router-dom";
+import { GoPerson } from "react-icons/go";
 
 export default function TopHeader(){
     return (
-        <>
     <nav className="nav">
-        <Link to ="/" className="site-title">ConfirmDen</Link>
+        <a href ="/"  className="site-title"><img src="Logo.png" alt="topHeaderLogo" /></a>
         <ul>
-            <Link to ="/Home">Home</Link>
-            <Link to ="/Articles">Articles</Link>
-            <Link to ="/Services">Services</Link>
-            <Link to ="/AboutUs">AboutUs</Link>
-            <Link to ="/ContactUs">ContactUs</Link>
-            <Link to ="/Account">Account</Link>
+            <CustomLink href ="/Articles" id="norm">Articles</CustomLink>
+            <CustomLink href ="/Services" id="norm">Services</CustomLink>
+            <CustomLink href ="/AboutUs" id="norm">AboutUs</CustomLink>
+            <CustomLink href ="/ContactUs" id="norm">ContactUs</CustomLink>
+            <GoPerson id="account-icon"></GoPerson>
+            <CustomLink href ="/Account" id="account-btn">Account</CustomLink>
         </ul>
     </nav>
-    <Outlet />
-    </>
     );
 }
 
-/*function CustomLink({ to, children, ...props}){
-    const resolvedPath = useResolvedPath(to)
-    const isActive  = useMatch({ path: resolvedPath.pathname, end: true})
+function CustomLink({ href, children, ...props}){
+    const path = window.location.pathname
     return (
-        <li className= {isActive ? "active" : ""}>
-            <Link to= {to} {...props}>{children}</Link>
+        <li className= {path === href ? "active" : ""}>
+            <a href= {href} {...props}>{children}</a>
         </li>
-    )
-}*/
+    );
+}

@@ -1,7 +1,5 @@
-//import { useEffect, useState } from 'react';
-import { SearchBar } from "./components/SearchBar.jsx";
+import React from 'react';
 import "./index.css";
-import { SearchResultList } from './components/SearchResults.jsx';
 import TopHeader  from './components/topHeader.jsx';
 import AboutUs from "./pages/AboutUs.jsx";
 import Account from "./pages/Account.jsx";
@@ -9,55 +7,65 @@ import Articles from "./pages/Articles.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
 import Services from "./pages/Services.jsx";
 import Home from "./pages/Home.jsx";
-import { Route, Routes } from "react-router-dom";
+
+require('react-dom');
+window.React2 = require('react');
+console.log(window.React1 === window.React2);
 
 export default function App() {
-  /*const [message, setMessage] = useState("");
+  /**/
 
-  useEffect(() => {
-    const getFacts = async () =>{
-      const res = await fetch("api/facts");
-      const facts = await res.json();
-
-      console.log(facts);
-    };
-    getFacts();
-  }, [])*/
-
-  //        {message && <p>{message}</p>} (under search result list)
+  //         (under search result list)
 
   //const [results, setResults] = useState([]);
   //setResults = {setResults} (on the search bar)
   //results = {results} (on the search result list)
 
-  return (
-    <div className="App">
-      <div>
-        <>
-          <TopHeader />
-          <div className="container">
+  /*<BrowserRouter>
             <Routes>
-              <Route path = "/Home" element ={<Home />} />
+              <Route path = "/" element ={<Home />} />
               <Route path = "/AboutUs" element ={<AboutUs />} />
               <Route path = "/Account" element ={<Account />} />
               <Route path = "/Articles" element ={<Articles />} />
               <Route path = "/ContactUs" element ={<ContactUs />} />
               <Route path = "/Services" element ={<Services />} />
             </Routes>
+            </BrowserRouter>*/ //router doesnt work???
+
+  
+
+  let component
+  switch (window.location.pathname){
+    case "/":
+      component = <Home />
+      break
+    case "/AboutUs":
+      component = <AboutUs />
+      break
+    case "/Account":
+      component = <Account />
+      break
+    case "/Articles":
+      component = <Articles />
+      break
+    case "/ContactUs":
+      component = <ContactUs />
+      break
+    case "/Services":
+      component = <Services />
+      break
+      
+    //no default
+  }
+  return (
+    
+    <div className="App">
+        <>
+          <TopHeader />
+          <div className="container">
+            { component }
           </div>
         </>
-      </div>
-      <div className="logo">
-        <img src = "android-chrome-192x192.png" alt = "logo"></img>
-        <h1 id="myH1">ConfirmDen</h1>
-        <h3 id="myH3">An article checker that is simple and easy to use.</h3>
-      </div>
-      <div className="search-bar-container">
-        <div>
-          <SearchBar />
-          </div>
-        <SearchResultList />
-      </div>
     </div>
   );
 }

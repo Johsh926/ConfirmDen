@@ -1,21 +1,29 @@
 const express = require("express");
 const router = express.Router();
+const { getCollection } = require("./models/index")
 
 
-
-router.get("/facts", (req, res) =>{
-    res.status(200).json({mssg: "Get Request to /api/facts"});
+router.get("/facts", async (req, res) =>{
+    const collection = getCollection();
+    const facts = await collection.find({}).toArray();
+    
+    res.status(200).json(facts);
 });
 
-router.post("/facts", (req, res) =>{
-    res.status(201).json({mssg: "Post Request to /api/facts"});
+router.post("/facts", async (req, res) =>{
+    const collection = getCollection();
+    const { fact } = req.body;
+
+    const newFact = await collection.insertOne({ fact, status:false });
+
+    res.status(201).json({ fact, status: false, _id: newFact.insertedId});
 });
 
-router.delete("/facts/:id", (req, res) => {
+router.delete("/facts/:id", async (req, res) => {
     res.status(200).json({mssg: "Delete Request to api/facts"})
 });
 
-router.put("/facts/:id'", (req, res) => {
+router.put("/facts/:id", async (req, res) => {
     res.status(200).json({mssg: "Put Request to api/facts"})
 });
 
