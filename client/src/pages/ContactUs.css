@@ -1,0 +1,237 @@
+/* Main Container */
+.contact-container {
+    text-align: center;
+    padding: 70px 40px;
+    font-family: 'Arial', sans-serif;
+    max-width: auto;
+    margin: auto;
+    background-color: #ffffff;
+}
+
+
+.contact-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-top: 0px; /* Move it closer to the top */
+    text-align: center;
+}
+
+
+
+
+.contact-subtitle {
+    font-size: 14px;
+    color: #666; /* Slightly darker than before */
+    margin-bottom: 40px;
+}
+
+
+/* Content Layout */
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* Contact Info Boxes */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex: 1 1 40%;
+}
+
+
+.contact-box {
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: none;
+}
+
+
+/* Colors for Contact Boxes */
+.blue-box {
+    background-color: #007bff; /* Standard primary blue */
+    color: white;
+}
+
+
+.light-blue-box {
+    background-color: #f5faff; /* Softer blue for a more modern feel */
+    color: #222;
+}
+
+
+/* Icon & Text */
+.icon-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 10px;
+}
+
+
+.icon {
+    font-size: 22px;
+}
+
+
+/* Contact Number & Email */
+.contact-number {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+.contact-email {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Matches blue theme */
+    text-decoration: none;
+    display: block; /* Ensures proper spacing */
+    margin-bottom: 10px;
+}
+
+
+.contact-email:hover {
+    text-decoration: underline;
+}
+
+
+/* Buttons */
+.contact-btn {
+    background-color: white;
+    border: 2px solid #007bff; /* Outlined button for a modern touch */
+    color: #007bff;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    width: auto;
+    transition: all 0.3s ease;
+    margin-top: 15px; /* Add spacing above the button */
+}
+
+
+.contact-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+
+/* Contact Form */
+.contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    flex: 1 1 50%;
+    box-shadow: none;
+}
+
+
+/* Input Fields (Even Borders & Consistency) */
+.input-field,
+.textarea-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+
+/* Full Width Input */
+.full-width {
+    width: 100%;
+}
+
+
+/* Grouped Inputs */
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+
+.input-group .input-field {
+    flex: 1;
+}
+
+
+/* Textarea */
+.textarea-field {
+    height: 120px;
+    resize: none;
+}
+
+
+/* Send Button */
+.send-btn {
+    background-color: #007bff; /* Matches primary color */
+    color: white;
+    padding: 12px;
+    font-size: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.send-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .contact-form,
+    .contact-info {
+        width: 100%;
+    }
+
+
+    .input-group {
+        flex-direction: column;
+    }
+
+
+    .input-group .input-field {
+        width: 100%;
+    }
+}
+
+
+/* Adjusted Button Placement for Contact Email */
+.contact-box.light-blue-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px; /* Ensure spacing is even */
+}
+
+
+.contact-email {
+    margin-bottom: 15px; /* Spacing before button */
+}
+
+
+.contact-box.light-blue-box .contact-btn {
+    width: 60%; /* Make it smaller for better placement */
+}

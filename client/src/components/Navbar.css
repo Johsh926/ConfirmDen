@@ -1,0 +1,175 @@
+/* General body styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Main container */
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header styling */
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 30px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo container */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.confirmden-logo {
+    width: 180px;
+    height: auto;
+}
+
+/* Navbar list */
+.nav-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+}
+
+/* Navbar items */
+.nav-list li {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    color: white;
+}
+
+.nav-list li:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Active link */
+.nav-list .active-link {
+    background-color: #ffffff;
+    color: #007bff;
+    font-weight: bold;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Account Dropdown */
+.account-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Account Link */
+.account-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Account Icon */
+.account-svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 160px;
+    text-align: left;
+    z-index: 1000;
+    padding: 5px 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Show dropdown */
+.account-item.open .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+    display: block;
+    padding: 12px 15px;
+    color: #002b80;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.2s, transform 0.2s;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    transform: translateX(5px);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #007bff;
+        width: 100%;
+        display: none;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-list.show {
+        display: flex;
+    }
+}
